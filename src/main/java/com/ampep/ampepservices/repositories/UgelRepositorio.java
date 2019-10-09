@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.data.repository.Repository;
 
-import com.ampep.ampepservices.controller.Ugel;
+import com.ampep.ampepservices.entities.Ugel;
 
 public interface UgelRepositorio extends Repository<Ugel, Integer>
 {

@@ -1,4 +1,4 @@
-package com.ampep.ampepservices.controller;
+package com.ampep.ampepservices.entities;
 
 import java.util.Date;
 

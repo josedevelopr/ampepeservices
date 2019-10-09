@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ampep.ampepservices.controller.Ugel;
+import com.ampep.ampepservices.entities.Ugel;
 import com.ampep.ampepservices.repositories.UgelRepositorio;
 
 @Service
