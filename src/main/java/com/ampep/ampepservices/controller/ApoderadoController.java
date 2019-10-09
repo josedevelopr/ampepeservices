@@ -2,6 +2,8 @@ package com.ampep.ampepservices.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -34,7 +36,7 @@ public class ApoderadoController
         return service.listarId(id);
     }
     @PostMapping("/apoderados")
-    public Apoderado agregar(@ModelAttribute Apoderado apo){
+    public Apoderado agregar(@Valid @RequestBody Apoderado apo){
         return service.add(apo);
     }
     @PutMapping(path = {"/apoderados/{id}"})
