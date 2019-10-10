@@ -1,15 +1,20 @@
 package com.ampep.ampepservices.entities;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="tb_colegio")
@@ -75,6 +80,26 @@ public class Colegio
 	@JoinColumn(name="co_idugel")
 	private Ugel idUgelColegio;	
 	
+	@OneToMany(mappedBy = "colegioApoderado", fetch = FetchType.LAZY)
+	@JsonIgnore
+	private List<Apoderado> listaApoderadoColegio;
+	
+	@OneToMany(mappedBy = "colegioRepresentante", fetch = FetchType.LAZY)
+	@JsonIgnore
+	private List<Representante> listaRepresentanteColegio;
+	
+	@OneToMany(mappedBy = "colegioAnioEscolar", fetch = FetchType.LAZY)
+	@JsonIgnore
+	private List<AnioEscolar> listaAnioEscolarColegio;
+	
+	public List<Apoderado> getListaApoderadoColegio() {
+		return listaApoderadoColegio;
+	}
+
+	public void setListaApoderadoColegio(List<Apoderado> listaApoderadoColegio) {
+		this.listaApoderadoColegio = listaApoderadoColegio;
+	}
+
 	public Ugel getIdUgelColegio() {
 		return idUgelColegio;
 	}

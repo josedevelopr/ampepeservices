@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -19,12 +21,6 @@ public class Apoderado
 	@Column(name="ap_idapodera")
 	//@GeneratedValue(strategy = GenerationType.AUTO)
 	private int idApoderado;
-	
-	@Column(name="ap_idcolegio")
-	private int idColegioApoderado;
-	
-	@Column(name="ap_iddistrit")
-	private int idDisritoApoderado;
 	
 	@Column(name="ap_dniapoder")
 	private String dniApoderado;
@@ -84,6 +80,14 @@ public class Apoderado
 	@Column(name="ap_fechregis")
 	private String fecregistroApoderado;
 
+	@ManyToOne
+	@JoinColumn(name ="ap_idcolegio")
+	private Colegio colegioApoderado;
+	
+	@ManyToOne
+	@JoinColumn(name = "ap_iddistrit")
+	private Distrito distritoApoderado;
+	
 	public int getIdApoderado() {
 		return idApoderado;
 	}
@@ -92,20 +96,20 @@ public class Apoderado
 		this.idApoderado = idApoderado;
 	}
 
-	public int getIdColegioApoderado() {
-		return idColegioApoderado;
+	public Colegio getColegioApoderado() {
+		return colegioApoderado;
 	}
 
-	public void setIdColegioApoderado(int idColegioApoderado) {
-		this.idColegioApoderado = idColegioApoderado;
+	public void setColegioApoderado(Colegio colegioApoderado) {
+		this.colegioApoderado = colegioApoderado;
 	}
 
-	public int getIdDisritoApoderado() {
-		return idDisritoApoderado;
+	public Distrito getDistritoApoderado() {
+		return distritoApoderado;
 	}
 
-	public void setIdDisritoApoderado(int idDisritoApoderado) {
-		this.idDisritoApoderado = idDisritoApoderado;
+	public void setDistritoApoderado(Distrito distritoApoderado) {
+		this.distritoApoderado = distritoApoderado;
 	}
 
 	public String getDniApoderado() {

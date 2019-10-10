@@ -15,37 +15,36 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ampep.ampepservices.entities.Apoderado;
-import com.ampep.ampepservices.services.ApoderadoService;
+import com.ampep.ampepservices.entities.AnioEscolar;
+import com.ampep.ampepservices.services.AnioEscolarService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping({"/ampep"})
-public class ApoderadoController 
+public class AnioEscolarController 
 {
 	@Autowired
-	ApoderadoService service;
+	AnioEscolarService service;
 	
-    @GetMapping("/apoderados")
-    public List<Apoderado>listar(){
+    @GetMapping("/aniosEscolares")
+    public List<AnioEscolar>listar(){
         return service.listar();
-        
     }  
-    @GetMapping(path = {"/apoderados/{id}"})
-    public Apoderado listarId(@PathVariable("id")int id){
+    @GetMapping(path = {"/aniosEscolares/{id}"})
+    public AnioEscolar listarId(@PathVariable("id")int id){
         return service.listarId(id);
     }
-    @PostMapping("/apoderados")
-    public Apoderado agregar(@Valid @RequestBody Apoderado apo){
+    @PostMapping("/aniosEscolares")
+    public AnioEscolar agregar(@Valid @RequestBody AnioEscolar apo){
         return service.add(apo);
     }
-    @PutMapping(path = {"/apoderados/{id}"})
-    public Apoderado editar(@RequestBody Apoderado apo,@PathVariable("id") int id){
-        apo.setIdApoderado(id);
+    @PutMapping(path = {"/aniosEscolares/{id}"})
+    public AnioEscolar editar(@RequestBody AnioEscolar apo,@PathVariable("id") int id){
+        apo.setIdAnioEscolar(id);
         return service.edit(apo);
     }
-    @DeleteMapping(path = {"/apoderados/{id}"})
-    public Apoderado delete(@PathVariable("id") int  id){
+    @DeleteMapping(path = {"/aniosEscolares/{id}"})
+    public AnioEscolar delete(@PathVariable("id") int  id){
         return service.delete(id);
     }
 }

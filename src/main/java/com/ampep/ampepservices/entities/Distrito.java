@@ -1,13 +1,19 @@
 package com.ampep.ampepservices.entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="tb_distrito")
@@ -24,7 +30,19 @@ public class Distrito
 	@ManyToOne
 	@JoinColumn(name="di_idprovinc")
 	private Provincia ProvinciaDistrito;
+	
+	@OneToMany(mappedBy = "distritoColegio", fetch = FetchType.LAZY)
+	@JsonIgnore
+	private List<Colegio> listaDistritoColegio;
 
+	@OneToMany(mappedBy = "distritoApoderado", fetch = FetchType.LAZY)
+	@JsonIgnore
+	private List<Apoderado> listaDistritoApoderado;
+	
+	@OneToMany(mappedBy = "distritoRepresentante", fetch = FetchType.LAZY)
+	@JsonIgnore
+	private List<Representante> listaDistritoRepresentante;
+	
 	public int getIdDistrito() {
 		return idDistrito;
 	}
