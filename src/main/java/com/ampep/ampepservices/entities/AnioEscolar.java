@@ -1,15 +1,20 @@
 package com.ampep.ampepservices.entities;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="tb_anioescol")
@@ -41,6 +46,18 @@ public class AnioEscolar
 	@ManyToOne
 	@JoinColumn(name ="ae_idcolegio")
 	private Colegio colegioAnioEscolar;
+	
+	@OneToMany(mappedBy = "anioEscolarGrado", fetch = FetchType.LAZY)
+	@JsonIgnore
+	private List<GradoEscolar> listaGradoEscolarAnioEscolar;
+
+	public List<GradoEscolar> getListaGradoEscolarAnioEscolar() {
+		return listaGradoEscolarAnioEscolar;
+	}
+
+	public void setListaGradoEscolarAnioEscolar(List<GradoEscolar> listaGradoEscolarAnioEscolar) {
+		this.listaGradoEscolarAnioEscolar = listaGradoEscolarAnioEscolar;
+	}
 
 	public int getIdAnioEscolar() {
 		return idAnioEscolar;
