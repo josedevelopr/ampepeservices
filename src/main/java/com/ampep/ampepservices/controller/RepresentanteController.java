@@ -15,36 +15,36 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ampep.ampepservices.entities.Apoderado;
-import com.ampep.ampepservices.services.ApoderadoService;
+import com.ampep.ampepservices.entities.Representante;
+import com.ampep.ampepservices.services.RepresentanteService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping({"/ampep"})
-public class ApoderadoController 
+public class RepresentanteController 
 {
 	@Autowired
-	ApoderadoService service;
+	RepresentanteService service;
 	
-    @GetMapping("/apoderados")
-    public List<Apoderado>listar(){
+	@GetMapping("/representantes")
+    public List<Representante>listar(){
         return service.listar();
     }  
-    @GetMapping(path = {"/apoderados/{id}"})
-    public Apoderado listarId(@PathVariable("id")int id){
+    @GetMapping(path = {"/representantes/{id}"})
+    public Representante listarId(@PathVariable("id")int id){
         return service.listarId(id);
     }
-    @PostMapping("/apoderados")
-    public Apoderado agregar(@Valid @RequestBody Apoderado apo){
+    @PostMapping("/representantes")
+    public Representante agregar(@Valid @RequestBody Representante apo){
         return service.add(apo);
     }
-    @PutMapping(path = {"/apoderados/{id}"})
-    public Apoderado editar(@RequestBody Apoderado apo,@PathVariable("id") int id){
-        apo.setIdApoderado(id);
+    @PutMapping(path = {"/representantes/{id}"})
+    public Representante editar(@RequestBody Representante apo,@PathVariable("id") int id){
+        apo.setIdRepresentante(id);
         return service.edit(apo);
     }
-    @DeleteMapping(path = {"/apoderados/{id}"})
-    public Apoderado delete(@PathVariable("id") int  id){
+    @DeleteMapping(path = {"/representantes/{id}"})
+    public Representante delete(@PathVariable("id") int  id){
         return service.delete(id);
     }
 }

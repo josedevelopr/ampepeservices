@@ -84,6 +84,14 @@ public class Colegio
 	@JsonIgnore
 	private List<Apoderado> listaApoderadoColegio;
 	
+	@OneToMany(mappedBy = "colegioRepresentante", fetch = FetchType.LAZY)
+	@JsonIgnore
+	private List<Representante> listaRepresentanteColegio;
+	
+	@OneToMany(mappedBy = "colegioAnioEscolar", fetch = FetchType.LAZY)
+	@JsonIgnore
+	private List<AnioEscolar> listaAnioEscolarColegio;
+	
 	public List<Apoderado> getListaApoderadoColegio() {
 		return listaApoderadoColegio;
 	}
