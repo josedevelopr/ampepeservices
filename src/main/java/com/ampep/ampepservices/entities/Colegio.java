@@ -18,7 +18,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="tb_colegio")
-
 public class Colegio 
 {
 	@Id
@@ -84,6 +83,18 @@ public class Colegio
 	@JsonIgnore
 	private List<Apoderado> listaApoderadoColegio;
 	
+	@OneToMany(mappedBy = "idColegioProf", fetch = FetchType.LAZY)
+	@JsonIgnore
+	private List<Profesor> listaProfesorColegio;
+	
+	public List<Profesor> getListaProfesorColegio() {
+		return listaProfesorColegio;
+	}
+
+	public void setListaProfesorColegio(List<Profesor> listaProfesorColegio) {
+		this.listaProfesorColegio = listaProfesorColegio;
+	}
+
 	public List<Apoderado> getListaApoderadoColegio() {
 		return listaApoderadoColegio;
 	}
