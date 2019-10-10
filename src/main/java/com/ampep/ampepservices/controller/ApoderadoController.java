@@ -28,6 +28,7 @@ public class ApoderadoController
     @GetMapping("/apoderados")
     public List<Apoderado>listar(){
         return service.listar();
+        
     }  
     @GetMapping(path = {"/apoderados/{id}"})
     public Apoderado listarId(@PathVariable("id")int id){
