@@ -3,10 +3,12 @@ package com.ampep.ampepservices.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.ampep.ampepservices.entities.Profesor;
 import com.ampep.ampepservices.repositories.ProfesorRepositorio;
 
+@Service  
 public class ProfesorServiceImpl implements ProfesorService{
 
 	@Autowired
@@ -21,7 +23,7 @@ public class ProfesorServiceImpl implements ProfesorService{
 	@Override
 	public Profesor listarId(int id) {
 
-		return repositorio.findOne(id);
+		return repositorio.findByIdProfeso(id);
 	}
 
 	@Override
@@ -39,7 +41,7 @@ public class ProfesorServiceImpl implements ProfesorService{
 	@Override
 	public Profesor delete(int id) {
 		
-		Profesor prof=repositorio.findOne(id);
+		Profesor prof=repositorio.findByIdProfeso(id);
 		if(prof!=null) {
 			repositorio.delete(prof);
 		}

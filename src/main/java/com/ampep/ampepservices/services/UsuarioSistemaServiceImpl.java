@@ -3,10 +3,12 @@ package com.ampep.ampepservices.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.ampep.ampepservices.entities.UsuarioSistema;
 import com.ampep.ampepservices.repositories.UsuarioSistemaRepositorio;
 
+@Service  
 public class UsuarioSistemaServiceImpl implements UsuarioSistemaService{
 
 	@Autowired
@@ -21,7 +23,7 @@ public class UsuarioSistemaServiceImpl implements UsuarioSistemaService{
 	@Override
 	public UsuarioSistema listarId(int id) {
 		
-		return repositorio.findOne(id);
+		return repositorio.findByIdUsusist(id);
 	}
 
 	@Override
@@ -39,7 +41,7 @@ public class UsuarioSistemaServiceImpl implements UsuarioSistemaService{
 	@Override
 	public UsuarioSistema delete(int id) {
 		
-		UsuarioSistema ust=repositorio.findOne(id);
+		UsuarioSistema ust=repositorio.findByIdUsusist(id);
 		if(ust!=null) {
 			repositorio.delete(ust);
 		}

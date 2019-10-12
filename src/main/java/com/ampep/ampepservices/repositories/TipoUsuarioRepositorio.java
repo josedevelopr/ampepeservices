@@ -9,7 +9,7 @@ import com.ampep.ampepservices.entities.TipoUsuario;
 public interface TipoUsuarioRepositorio extends Repository<TipoUsuario, Integer>{
 
 	List<TipoUsuario>findAll();
-	TipoUsuario findOne(int id);
+	TipoUsuario findByIdTipousu(int id);
 	TipoUsuario save(TipoUsuario tu);
 	void delete(TipoUsuario tu);
 }

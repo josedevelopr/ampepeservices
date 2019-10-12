@@ -9,7 +9,7 @@ import com.ampep.ampepservices.entities.UsuarioSistema;
 public interface UsuarioSistemaRepositorio extends Repository<UsuarioSistema, Integer>{
 
 	List<UsuarioSistema>findAll();
-	UsuarioSistema findOne(int id);
+	UsuarioSistema findByIdUsusist(int id);
 	UsuarioSistema save(UsuarioSistema ust);
 	void delete(UsuarioSistema ust);
 }

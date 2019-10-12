@@ -24,13 +24,13 @@ public class TipoUsuarioController {
 	@Autowired
 	TipoUsuarioService service;
 	
-	@GetMapping
+	@GetMapping(path= {"/tipousuario/"})
 	public List<TipoUsuario>listar(){
 		
 		return service.listarTU();
 	}
 	
-	@PostMapping
+	@PostMapping(path= {"/tipousuario/"})
 	public TipoUsuario agregar(@RequestBody TipoUsuario tu) {
 		
 		return service.add(tu);

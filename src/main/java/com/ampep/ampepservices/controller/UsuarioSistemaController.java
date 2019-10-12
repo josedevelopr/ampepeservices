@@ -24,13 +24,13 @@ public class UsuarioSistemaController {
 	@Autowired
 	UsuarioSistemaService service;
 	
-	@GetMapping
+	@GetMapping(path= {"/usuariosistema/"})
 	public List<UsuarioSistema>listar(){
 		
 		return service.listarUST();
 	}
 	
-	@PostMapping
+	@PostMapping(path= {"/usuariosistema/"})
 	public UsuarioSistema agregar(@RequestBody UsuarioSistema ust) {
 		
 		return service.add(ust);

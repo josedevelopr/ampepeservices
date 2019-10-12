@@ -24,13 +24,13 @@ public class ProfesorController {
 	@Autowired
 	ProfesorService service;
 	
-	@GetMapping
+	@GetMapping(path= {"/profesor/"})
 	public List<Profesor>listar() {
 		
 		return service.listarPROF();
 	}
 	
-	@PostMapping
+	@PostMapping(path= {"/profesor/"})
 	public Profesor agregar(@RequestBody Profesor prof) {
 		
 		return service.add(prof);
