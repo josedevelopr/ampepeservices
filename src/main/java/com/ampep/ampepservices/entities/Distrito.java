@@ -43,6 +43,34 @@ public class Distrito
 	@JsonIgnore
 	private List<Representante> listaDistritoRepresentante;
 	
+	@OneToMany(mappedBy = "idDistritProf", fetch = FetchType.LAZY)
+	@JsonIgnore
+	private List<Profesor> listaDistritoProfesor;
+	
+	public List<Colegio> getListaDistritoColegio() {
+		return listaDistritoColegio;
+	}
+
+	public void setListaDistritoColegio(List<Colegio> listaDistritoColegio) {
+		this.listaDistritoColegio = listaDistritoColegio;
+	}
+
+	public List<Apoderado> getListaDistritoApoderado() {
+		return listaDistritoApoderado;
+	}
+
+	public void setListaDistritoApoderado(List<Apoderado> listaDistritoApoderado) {
+		this.listaDistritoApoderado = listaDistritoApoderado;
+	}
+
+	public List<Profesor> getListaDistritoProfesor() {
+		return listaDistritoProfesor;
+	}
+
+	public void setListaDistritoProfesor(List<Profesor> listaDistritoProfesor) {
+		this.listaDistritoProfesor = listaDistritoProfesor;
+	}
+
 	public int getIdDistrito() {
 		return idDistrito;
 	}
