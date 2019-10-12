@@ -78,7 +78,8 @@ public class Apoderado
 	private String fotoApoderado;
 	
 	@Column(name="ap_fechregis")
-	private String fecregistroApoderado;
+	@Temporal(TemporalType.DATE)
+	private Date fecregistroApoderado;
 
 	@ManyToOne
 	@JoinColumn(name ="ap_idcolegio")
@@ -256,11 +257,11 @@ public class Apoderado
 		this.fotoApoderado = fotoApoderado;
 	}
 
-	public String getFecregistroApoderado() {
+	public Date getFecregistroApoderado() {
 		return fecregistroApoderado;
 	}
 
-	public void setFecregistroApoderado(String fecregistroApoderado) {
+	public void setFecregistroApoderado(Date fecregistroApoderado) {
 		this.fecregistroApoderado = fecregistroApoderado;
 	}
 	

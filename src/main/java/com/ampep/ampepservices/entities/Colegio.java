@@ -91,6 +91,34 @@ public class Colegio
 	@JsonIgnore
 	private List<AnioEscolar> listaAnioEscolarColegio;
 	
+	@OneToMany(mappedBy = "colegioGradoEscolar", fetch = FetchType.LAZY)
+	@JsonIgnore
+	private List<GradoEscolar> listaGradoEscolarColegio;
+	
+	public List<Representante> getListaRepresentanteColegio() {
+		return listaRepresentanteColegio;
+	}
+
+	public void setListaRepresentanteColegio(List<Representante> listaRepresentanteColegio) {
+		this.listaRepresentanteColegio = listaRepresentanteColegio;
+	}
+
+	public List<AnioEscolar> getListaAnioEscolarColegio() {
+		return listaAnioEscolarColegio;
+	}
+
+	public void setListaAnioEscolarColegio(List<AnioEscolar> listaAnioEscolarColegio) {
+		this.listaAnioEscolarColegio = listaAnioEscolarColegio;
+	}
+
+	public List<GradoEscolar> getListaGradoEscolarColegio() {
+		return listaGradoEscolarColegio;
+	}
+
+	public void setListaGradoEscolarColegio(List<GradoEscolar> listaGradoEscolarColegio) {
+		this.listaGradoEscolarColegio = listaGradoEscolarColegio;
+	}
+
 	public List<Apoderado> getListaApoderadoColegio() {
 		return listaApoderadoColegio;
 	}
