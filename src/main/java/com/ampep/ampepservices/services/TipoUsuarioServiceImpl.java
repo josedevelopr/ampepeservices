@@ -3,10 +3,12 @@ package com.ampep.ampepservices.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.ampep.ampepservices.entities.TipoUsuario;
 import com.ampep.ampepservices.repositories.TipoUsuarioRepositorio;
 
+@Service
 public class TipoUsuarioServiceImpl implements TipoUsuarioService{
 
 	@Autowired

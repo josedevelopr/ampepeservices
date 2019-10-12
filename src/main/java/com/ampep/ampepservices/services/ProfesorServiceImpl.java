@@ -3,10 +3,12 @@ package com.ampep.ampepservices.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.ampep.ampepservices.entities.Profesor;
 import com.ampep.ampepservices.repositories.ProfesorRepositorio;
 
+@Service
 public class ProfesorServiceImpl implements ProfesorService{
 
 	@Autowired
