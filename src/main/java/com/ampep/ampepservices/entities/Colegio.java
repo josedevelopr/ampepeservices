@@ -87,6 +87,14 @@ public class Colegio
 	@JsonIgnore
 	private List<Profesor> listaProfesorColegio;
 	
+	@OneToMany(mappedBy = "colegioRepresentante", fetch = FetchType.LAZY)
+	@JsonIgnore
+	private List<Representante> listaRepresentanteColegio;
+	
+	@OneToMany(mappedBy = "colegioAnioEscolar", fetch = FetchType.LAZY)
+	@JsonIgnore
+	private List<AnioEscolar> listaAnioEscolarColegio;
+	
 	public List<Profesor> getListaProfesorColegio() {
 		return listaProfesorColegio;
 	}
@@ -94,7 +102,7 @@ public class Colegio
 	public void setListaProfesorColegio(List<Profesor> listaProfesorColegio) {
 		this.listaProfesorColegio = listaProfesorColegio;
 	}
-
+	
 	public List<Apoderado> getListaApoderadoColegio() {
 		return listaApoderadoColegio;
 	}

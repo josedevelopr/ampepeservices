@@ -43,6 +43,10 @@ public class Distrito
 	@JsonIgnore
 	private List<Profesor> listaDistritoProfesor;
 	
+	@OneToMany(mappedBy = "distritoRepresentante", fetch = FetchType.LAZY)
+	@JsonIgnore
+	private List<Representante> listaDistritoRepresentante;
+	
 	public List<Colegio> getListaDistritoColegio() {
 		return listaDistritoColegio;
 	}
@@ -66,7 +70,7 @@ public class Distrito
 	public void setListaDistritoProfesor(List<Profesor> listaDistritoProfesor) {
 		this.listaDistritoProfesor = listaDistritoProfesor;
 	}
-
+	
 	public int getIdDistrito() {
 		return idDistrito;
 	}
