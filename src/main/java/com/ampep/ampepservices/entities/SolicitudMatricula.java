@@ -39,9 +39,6 @@ public class SolicitudMatricula
 	private String departamentoactualpostulanteSolicitud;
 	
 	@Column(name="sm_prnaposma")
-	private String provincianactualpostulanteSolicitud;
-	
-	@Column(name="sm_prnaposma")
 	private String provinciaactualpostulanteSolicitud;
 	
 	@Column(name="sm_dinaposma")
@@ -124,14 +121,6 @@ public class SolicitudMatricula
 
 	public void setDepartamentoactualpostulanteSolicitud(String departamentoactualpostulanteSolicitud) {
 		this.departamentoactualpostulanteSolicitud = departamentoactualpostulanteSolicitud;
-	}
-
-	public String getProvincianactualpostulanteSolicitud() {
-		return provincianactualpostulanteSolicitud;
-	}
-
-	public void setProvincianactualpostulanteSolicitud(String provincianactualpostulanteSolicitud) {
-		this.provincianactualpostulanteSolicitud = provincianactualpostulanteSolicitud;
 	}
 
 	public String getProvinciaactualpostulanteSolicitud() {
