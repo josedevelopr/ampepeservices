@@ -20,6 +20,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name="tb_colegio")
 public class Colegio 
 {
+	public List<Alumno> getListaAlumnoColegio() {
+		return listaAlumnoColegio;
+	}
+
+	public void setListaAlumnoColegio(List<Alumno> listaAlumnoColegio) {
+		this.listaAlumnoColegio = listaAlumnoColegio;
+	}
+
 	@Id
 	@Column(name="co_idcolegio")
 	//@GeneratedValue(strategy=GenerationType.AUTO)
@@ -95,6 +103,34 @@ public class Colegio
 	@JsonIgnore
 	private List<GradoEscolar> listaGradoEscolarColegio;
 	
+	@OneToMany(mappedBy = "colegioAlumno", fetch = FetchType.LAZY)
+	@JsonIgnore
+	private List<Alumno> listaAlumnoColegio;
+	
+	@OneToMany(mappedBy = "colegioSeccion", fetch = FetchType.LAZY)
+	@JsonIgnore
+	private List<SeccionEscolar> listaSeccionEscolarColegio;
+
+	@OneToMany(mappedBy = "colegioMatricula", fetch = FetchType.LAZY)
+	@JsonIgnore
+	private List<Matricula> listaMatriculaColegio;
+	
+	public List<Matricula> getListaMatriculaColegio() {
+		return listaMatriculaColegio;
+	}
+
+	public void setListaMatriculaColegio(List<Matricula> listaMatriculaColegio) {
+		this.listaMatriculaColegio = listaMatriculaColegio;
+	}
+	
+	public List<SeccionEscolar> getListaSeccionEscolarColegio() {
+		return listaSeccionEscolarColegio;
+	}
+
+	public void setListaSeccionEscolarColegio(List<SeccionEscolar> listaSeccionEscolarColegio) {
+		this.listaSeccionEscolarColegio = listaSeccionEscolarColegio;
+	}
+
 	public List<Representante> getListaRepresentanteColegio() {
 		return listaRepresentanteColegio;
 	}

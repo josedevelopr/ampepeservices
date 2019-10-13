@@ -8,6 +8,7 @@ public interface UsuarioSistemaService {
 
 	List<UsuarioSistema>listarUST();
 	UsuarioSistema listarId(int id);
+	UsuarioSistema listarNombre(String usuario);
 	UsuarioSistema add(UsuarioSistema tu);
 	UsuarioSistema edit(UsuarioSistema tu);
 	UsuarioSistema delete(int id);

@@ -50,6 +50,18 @@ public class AnioEscolar
 	@OneToMany(mappedBy = "anioEscolarGrado", fetch = FetchType.LAZY)
 	@JsonIgnore
 	private List<GradoEscolar> listaGradoEscolarAnioEscolar;
+	
+	@OneToMany(mappedBy = "anioescolarMatricula", fetch = FetchType.LAZY)
+	@JsonIgnore
+	private List<Matricula> listaMatriculaAnioEscolar;
+
+	public List<Matricula> getListaMatriculaAnioEscolar() {
+		return listaMatriculaAnioEscolar;
+	}
+
+	public void setListaMatriculaAnioEscolar(List<Matricula> listaMatriculaAnioEscolar) {
+		this.listaMatriculaAnioEscolar = listaMatriculaAnioEscolar;
+	}
 
 	public List<GradoEscolar> getListaGradoEscolarAnioEscolar() {
 		return listaGradoEscolarAnioEscolar;

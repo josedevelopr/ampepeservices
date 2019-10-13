@@ -47,4 +47,9 @@ public class UsuarioSistemaServiceImpl implements UsuarioSistemaService{
 		}
 		return ust;
 	}
+
+	@Override
+	public UsuarioSistema listarNombre(String usuario) {
+		return repositorio.findByUsuario(usuario);
+	}
 }

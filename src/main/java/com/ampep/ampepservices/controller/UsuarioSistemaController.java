@@ -42,6 +42,12 @@ public class UsuarioSistemaController {
 		return service.listarId(id);
 	}
 	
+	@GetMapping(path= {"/usuariosistema/login/{usuario}"})
+	public UsuarioSistema listarId(@PathVariable("usuario") String usuario) {
+		
+		return service.listarNombre(usuario);
+	}
+	
 	@PutMapping(path= {"/usuariosistema/{id}"})
 	public UsuarioSistema editar(@RequestBody UsuarioSistema ust, @PathVariable("id") int id) {
 	

@@ -10,6 +10,7 @@ public interface UsuarioSistemaRepositorio extends Repository<UsuarioSistema, In
 
 	List<UsuarioSistema>findAll();
 	UsuarioSistema findByIdUsusist(int id);
+	UsuarioSistema findByUsuario(String usuario);
 	UsuarioSistema save(UsuarioSistema ust);
 	void delete(UsuarioSistema ust);
 }

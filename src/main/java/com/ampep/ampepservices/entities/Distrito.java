@@ -19,6 +19,22 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name="tb_distrito")
 public class Distrito 
 {
+	public List<Representante> getListaDistritoRepresentante() {
+		return listaDistritoRepresentante;
+	}
+
+	public void setListaDistritoRepresentante(List<Representante> listaDistritoRepresentante) {
+		this.listaDistritoRepresentante = listaDistritoRepresentante;
+	}
+
+	public List<Alumno> getListaDistritoProfesorAlumno() {
+		return listaDistritoProfesorAlumno;
+	}
+
+	public void setListaDistritoProfesorAlumno(List<Alumno> listaDistritoProfesorAlumno) {
+		this.listaDistritoProfesorAlumno = listaDistritoProfesorAlumno;
+	}
+
 	@Id
 	@Column(name="di_iddistrit")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
@@ -46,6 +62,10 @@ public class Distrito
 	@OneToMany(mappedBy = "idDistritProf", fetch = FetchType.LAZY)
 	@JsonIgnore
 	private List<Profesor> listaDistritoProfesor;
+	
+	@OneToMany(mappedBy = "distritoAlumno", fetch = FetchType.LAZY)
+	@JsonIgnore
+	private List<Alumno> listaDistritoProfesorAlumno;
 	
 	public List<Colegio> getListaDistritoColegio() {
 		return listaDistritoColegio;
