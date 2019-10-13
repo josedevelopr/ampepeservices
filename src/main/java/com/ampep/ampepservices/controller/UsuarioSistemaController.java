@@ -42,10 +42,10 @@ public class UsuarioSistemaController {
 		return service.listarId(id);
 	}
 	
-	@GetMapping(path= {"/usuariosistema/login/{usuario}"})
-	public UsuarioSistema listarId(@PathVariable("usuario") String usuario) {
+	@GetMapping(path= {"/usuariosistema/login/{usuario}/{contrasena}"})
+	public UsuarioSistema listarId(@PathVariable("usuario") String usuario,@PathVariable("contrasena") String contrasena) {
 		
-		return service.listarNombre(usuario);
+		return service.login(usuario, contrasena);
 	}
 	
 	@PutMapping(path= {"/usuariosistema/{id}"})

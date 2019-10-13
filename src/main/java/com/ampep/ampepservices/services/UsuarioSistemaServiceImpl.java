@@ -52,4 +52,9 @@ public class UsuarioSistemaServiceImpl implements UsuarioSistemaService{
 	public UsuarioSistema listarNombre(String usuario) {
 		return repositorio.findByUsuario(usuario);
 	}
+
+	@Override
+	public UsuarioSistema login(String usuario, String contra) {
+		return repositorio.findByUsuarioAndContrasen(usuario, contra);
+	}
 }
