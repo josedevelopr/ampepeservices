@@ -115,6 +115,14 @@ public class Colegio
 	@JsonIgnore
 	private List<Matricula> listaMatriculaColegio;
 	
+	@OneToMany(mappedBy = "colegioDocumetoRequesitoColegio", fetch = FetchType.LAZY)
+	@JsonIgnore
+	private List<DocumentoRequisitoColegio> listaDocumentoRequisitoColegiodeColegio;
+	
+	@OneToMany(mappedBy = "colegioAnteriorMatricula", fetch = FetchType.LAZY)
+	@JsonIgnore
+	private List<AnteriorMatricula> listaAnteriorMatriculaColegio;
+	
 	public List<Matricula> getListaMatriculaColegio() {
 		return listaMatriculaColegio;
 	}

@@ -1,15 +1,20 @@
 package com.ampep.ampepservices.entities;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="tb_solimatri")
@@ -74,6 +79,19 @@ public class SolicitudMatricula
 	@ManyToOne
 	@JoinColumn(name ="sm_iddistrit")
 	private Distrito distritoSolicitudMatricula;
+	
+	@OneToMany(mappedBy = "solicitudMatAnteriorMatricula", fetch = FetchType.LAZY)
+	@JsonIgnore
+	private List<AnteriorMatricula> listaAnteriorMatriculaSolicitudMatricula;
+
+	public List<AnteriorMatricula> getListaAnteriorMatriculaSolicitudMatricula() {
+		return listaAnteriorMatriculaSolicitudMatricula;
+	}
+
+	public void setListaAnteriorMatriculaSolicitudMatricula(
+			List<AnteriorMatricula> listaAnteriorMatriculaSolicitudMatricula) {
+		this.listaAnteriorMatriculaSolicitudMatricula = listaAnteriorMatriculaSolicitudMatricula;
+	}
 
 	public int getIdSolicitudMatricula() {
 		return idSolicitudMatricula;
