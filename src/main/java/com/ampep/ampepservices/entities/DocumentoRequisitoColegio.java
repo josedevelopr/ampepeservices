@@ -27,10 +27,6 @@ public class DocumentoRequisitoColegio
 	@Column(name="dr_estadodoc")
 	private int estadoDocumetoRequesitoColegio;
 	
-	@Column(name="dr_fechregis")
-	@Temporal(TemporalType.DATE)
-	private Date fecregistroDocumentoRequesitoColegio;
-	
 	@ManyToOne
 	@JoinColumn(name ="dr_idcolegio")
 	private Colegio colegioDocumetoRequesitoColegio;
@@ -61,14 +57,6 @@ public class DocumentoRequisitoColegio
 
 	public void setEstadoDocumetoRequesitoColegio(int estadoDocumetoRequesitoColegio) {
 		this.estadoDocumetoRequesitoColegio = estadoDocumetoRequesitoColegio;
-	}
-
-	public Date getFecregistroDocumentoRequesitoColegio() {
-		return fecregistroDocumentoRequesitoColegio;
-	}
-
-	public void setFecregistroDocumentoRequesitoColegio(Date fecregistroDocumentoRequesitoColegio) {
-		this.fecregistroDocumentoRequesitoColegio = fecregistroDocumentoRequesitoColegio;
 	}
 
 	public Colegio getColegioDocumetoRequesitoColegio() {

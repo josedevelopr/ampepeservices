@@ -3,10 +3,12 @@ package com.ampep.ampepservices.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.ampep.ampepservices.entities.DocumentosPresentado;
 import com.ampep.ampepservices.repositories.DocumentosPresentadoRepositorio;
 
+@Service
 public class DocumentosPresentadoServiceImpl implements DocumentosPresentadoService
 {
 

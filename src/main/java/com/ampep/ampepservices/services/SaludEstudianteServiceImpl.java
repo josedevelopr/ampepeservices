@@ -40,7 +40,7 @@ public class SaludEstudianteServiceImpl implements SaludEstudianteService
 		SaludEstudiante salest = repositorio.findByIdSaludEstudiante(id);
 		if(salest!=null)
 		{
-			repositorio.delete(apo);
+			repositorio.delete(salest);
 		}
 		return salest;
 	}
