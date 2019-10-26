@@ -88,5 +88,4 @@ public class Ugel
 		this.fecRegUgel = fecRegUgel;
 	}
 	
-	
 }
