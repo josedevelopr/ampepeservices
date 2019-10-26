@@ -3,7 +3,6 @@ package com.ampep.ampepservices.services;
 import java.util.List;
 
 import com.ampep.ampepservices.entities.Colegio;
-import com.google.gson.Gson;
 
 public interface ColegioService 
 {
