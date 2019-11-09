@@ -13,7 +13,7 @@ public class Prueba
 {
 	@Id
 	@Column(name="pruebaid")
-	@GeneratedValue(strategy  = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
 	@Column(name="nomprueba")	

@@ -1,7 +1,9 @@
-package com.ampep.ampepservices.entities;
+	package com.ampep.ampepservices.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -13,7 +15,7 @@ public class AnteriorMatricula
 {
 	@Id
 	@Column(name="am_idantmatr")
-	//@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idAnteriorMatricula;
 	
 	@Column(name="am_colegante")

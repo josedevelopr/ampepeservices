@@ -37,7 +37,7 @@ public class Distrito
 
 	@Id
 	@Column(name="di_iddistrit")
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idDistrito;
 	
 	@Column(name="di_descripci")

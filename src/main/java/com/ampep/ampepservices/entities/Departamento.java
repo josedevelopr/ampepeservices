@@ -21,7 +21,7 @@ public class Departamento
 {
 	@Id
 	@Column(name="td_iddeparta")
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idDepartamento;
 	
 	@Column(name="td_nomdepart")

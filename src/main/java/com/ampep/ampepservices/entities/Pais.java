@@ -19,7 +19,7 @@ public class Pais
 {
 	@Id
 	@Column(name="tp_idtbpaiss")
-	//@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idPais;
 	
 	@Column(name="tp_nombrpais")

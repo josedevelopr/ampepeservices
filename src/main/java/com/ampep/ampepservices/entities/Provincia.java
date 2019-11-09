@@ -21,7 +21,7 @@ public class Provincia
 {
 	@Id
 	@Column(name="pr_idprovinc")
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idProvincia;
 	
 	@Column(name="pr_descripci")
