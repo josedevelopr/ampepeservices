@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ampep.ampepservices.entities.Colegio;
 import com.ampep.ampepservices.services.ColegioService;
-import com.google.gson.Gson;
+//import com.google.gson.Gson;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController

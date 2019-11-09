@@ -9,9 +9,9 @@ import org.springframework.stereotype.Service;
 
 import com.ampep.ampepservices.entities.Colegio;
 import com.ampep.ampepservices.repositories.ColegioRepositorio;
-import com.google.gson.Gson;
+//import com.google.gson.Gson;
 
-import au.com.bytecode.opencsv.CSVReader;
+//import au.com.bytecode.opencsv.CSVReader;
 
 @Service
 public class ColegioServiceImpl implements ColegioService 
@@ -53,54 +53,55 @@ public class ColegioServiceImpl implements ColegioService
 	
 	@Override
 	public String validarColegioYRpresentante(String codmoular, String dni) {
-		CSVReader reader = null;
-		int rowNumber = 0;
-		int rowNumberData = -1;
-		String colegioJson = null;
-		try
-		{
-			
-			reader = new CSVReader(new FileReader("D:/Desarrollo/archivos/cole.csv"),SEPARATOR,QUOTE);
-			String[] nextLine = null;
-			
-			while((nextLine = reader.readNext())!=null)
-			{
-				rowNumber++;
-				if(nextLine[0].toString().equals(codmoular))
-				{
-					rowNumberData = rowNumber;
-					//System.out.print(rowNumber+"");
-					//System.out.print(alldata.get(rowNumberData).toString());
-					Gson gson = new Gson();
-					
-					colegioJson =  gson.toJson(Arrays.toString(nextLine));
-					//System.out.println("ColegioJSon = "+colegioJson);
-					//System.out.println(Arrays.toString(nextLine));
-					break;
-					
-				}				
-			}
-		}
-		catch(Exception e)
-		{
-			System.out.print(e.getMessage());
-		}
-		finally
-		{
-			if(null != reader)
-			{
-				try
-				{
-					reader.close();
-				}
-				catch(Exception e)
-				{
-					e.printStackTrace();
-				}
-				
-			}
-		}
-		return colegioJson;
+//		CSVReader reader = null;
+//		int rowNumber = 0;
+//		int rowNumberData = -1;
+//		String colegioJson = null;
+//		try
+//		{
+//			
+//			reader = new CSVReader(new FileReader("D:/Desarrollo/archivos/cole.csv"),SEPARATOR,QUOTE);
+//			String[] nextLine = null;
+//			
+//			while((nextLine = reader.readNext())!=null)
+//			{
+//				rowNumber++;
+//				if(nextLine[0].toString().equals(codmoular))
+//				{
+//					rowNumberData = rowNumber;
+//					//System.out.print(rowNumber+"");
+//					//System.out.print(alldata.get(rowNumberData).toString());
+//					Gson gson = new Gson();
+//					
+//					colegioJson =  gson.toJson(Arrays.toString(nextLine));
+//					//System.out.println("ColegioJSon = "+colegioJson);
+//					//System.out.println(Arrays.toString(nextLine));
+//					break;
+//					
+//				}				
+//			}
+//		}
+//		catch(Exception e)
+//		{
+//			System.out.print(e.getMessage());
+//		}
+//		finally
+//		{
+//			if(null != reader)
+//			{
+//				try
+//				{
+//					reader.close();
+//				}
+//				catch(Exception e)
+//				{
+//					e.printStackTrace();
+//				}
+//				
+//			}
+//		}
+		//return colegioJson;
+		return null;
 
 	}
 
