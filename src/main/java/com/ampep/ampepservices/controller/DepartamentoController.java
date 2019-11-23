@@ -13,7 +13,7 @@ import com.ampep.ampepservices.entities.Departamento;
 import com.ampep.ampepservices.entities.Pais;
 import com.ampep.ampepservices.services.DepartamentoService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping({"ampep"})
 public class DepartamentoController 

@@ -2,6 +2,8 @@ package com.ampep.ampepservices.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -16,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ampep.ampepservices.entities.Profesor;
 import com.ampep.ampepservices.services.ProfesorService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping({"/ampep"})
 public class ProfesorController {
@@ -31,7 +33,7 @@ public class ProfesorController {
 	}
 	
 	@PostMapping(path= {"/profesor/"})
-	public Profesor agregar(@RequestBody Profesor prof) {
+	public Profesor agregar(@Valid @RequestBody Profesor prof) {
 		
 		return service.add(prof);
 	}

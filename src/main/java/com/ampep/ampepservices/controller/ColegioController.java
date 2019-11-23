@@ -1,7 +1,9 @@
 package com.ampep.ampepservices.controller;
 
+import java.util.Date;
 import java.util.List;
 
+import javax.persistence.EntityManager;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,16 +18,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ampep.ampepservices.entities.Colegio;
+import com.ampep.ampepservices.entities.ColegioMinedu;
+import com.ampep.ampepservices.entities.Distrito;
+import com.ampep.ampepservices.entities.Representante;
+import com.ampep.ampepservices.entities.Ugel;
 import com.ampep.ampepservices.services.ColegioService;
 //import com.google.gson.Gson;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping({"/ampep"})
 public class ColegioController 
 {
 	@Autowired
 	ColegioService service;
+	EntityManager em;
 	
 	@GetMapping("/colegios")
     public List<Colegio>listar(){
@@ -36,12 +43,38 @@ public class ColegioController
         return service.listarId(id);
     }
     @GetMapping(path = {"/colegios/validar/{codModular}"})
-    public String validarColegioYRepresentante(@PathVariable("codModular")String codModular){
-        return service.validarColegioYRpresentante(codModular, "");
+    public Colegio validarColegioYRepresentante(@PathVariable("codModular")String codModular){
+        
+    	return service.validarColegio(codModular);
+    	
     }
+    
+    @GetMapping(path = {"/colegios/validar_registro/{codModular}"})
+    public String validarColegioRegistro(@PathVariable("codModular")String codModular){
+    	System.out.print("********************************************");
+    	System.out.print(codModular);
+    	return em.createNamedStoredProcedureQuery("usp_validar_colegio").setParameter("it_codmodular", codModular).getResultList().toString();
+    }
+    
     @PostMapping("/colegios")
-    public Colegio agregar(@Valid @RequestBody Colegio apo){
-        return service.add(apo);
+    public Colegio agregar(@Valid @RequestBody ColegioMinedu colegio){
+        Colegio objColegio = new Colegio();
+        Representante objRepresentante = new Representante();
+        Distrito objDistrito = new Distrito();
+        Ugel objUgel = new Ugel();
+        
+        objDistrito.setIdDistrito(1358);
+        objUgel.setIdUgel(156);
+        //objColegio.setI
+    	objColegio.setDireccionColegio(colegio.getDireccionColegio());
+    	objColegio.setDirectorColegio(colegio.getDirectorColegio());
+    	objColegio.setFecRegistroColegio(new Date());
+    	objColegio.setNomColegio(colegio.getNombreColegio());
+    	objColegio.setDistritoColegio(objDistrito);
+    	objColegio.setIdUgelColegio(objUgel);
+    	objColegio.setIdModularColegio(colegio.getCodmodularColegio());
+    	
+    	return service.add(objColegio);    	
     }
     @PutMapping(path = {"/colegios/{id}"})
     public Colegio editar(@RequestBody Colegio apo,@PathVariable("id") int id){

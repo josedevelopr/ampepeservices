@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ampep.ampepservices.entities.TipoUsuario;
 import com.ampep.ampepservices.services.TipoUsuarioService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping({"/ampep"})
 public class TipoUsuarioController {

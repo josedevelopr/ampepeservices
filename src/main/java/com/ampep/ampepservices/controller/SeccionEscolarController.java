@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ampep.ampepservices.entities.SeccionEscolar;
 import com.ampep.ampepservices.services.SeccionEscolarService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping({"/ampep"})
 public class SeccionEscolarController 

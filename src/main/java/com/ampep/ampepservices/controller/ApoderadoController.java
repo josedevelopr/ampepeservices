@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ampep.ampepservices.entities.Apoderado;
 import com.ampep.ampepservices.services.ApoderadoService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping({"/ampep"})
 public class ApoderadoController 

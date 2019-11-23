@@ -10,6 +10,7 @@ public interface ColegioRepositorio extends Repository<Colegio,Integer>
 {
 	List<Colegio>findAll();
 	Colegio findByIdColegio(int id);
+	Colegio findByIdModularColegio(String idModularColegio);
 	Colegio save(Colegio cole);
 	Colegio delete(Colegio cole);
 }

@@ -47,13 +47,13 @@ public class Profesor {
 	private String domicilio;
 	
 	@Column(name="pr_telefono")
-	private int telefono;
+	private String telefono;
 	
 	@Column(name="pr_celular")
-	private int celular;
+	private String celular;
 	
 	@Column(name="pr_correo")
-	private int correo;
+	private String correo;
 	
 	@Column(name="pr_gradinstr")
 	private String gradInstr;
@@ -68,7 +68,12 @@ public class Profesor {
 	private String fotografi;
 	
 	@Column(name="pr_nroregpro")
-	private int nroRegpro;
+	private String nroRegpro;
+	
+	
+	@Column(name="pr_nrodedni")
+	private String nroDniProfesor;
+	
 	
 	@ManyToOne
 	@JoinColumn(name="pr_idcolegio")
@@ -146,27 +151,27 @@ public class Profesor {
 		this.domicilio = domicilio;
 	}
 
-	public int getTelefono() {
+	public String getTelefono() {
 		return telefono;
 	}
 
-	public void setTelefono(int telefono) {
+	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 
-	public int getCelular() {
+	public String getCelular() {
 		return celular;
 	}
 
-	public void setCelular(int celular) {
+	public void setCelular(String celular) {
 		this.celular = celular;
 	}
 
-	public int getCorreo() {
+	public String getCorreo() {
 		return correo;
 	}
 
-	public void setCorreo(int correo) {
+	public void setCorreo(String correo) {
 		this.correo = correo;
 	}
 
@@ -202,12 +207,20 @@ public class Profesor {
 		this.fotografi = fotografi;
 	}
 
-	public int getNroRegpro() {
+	public String getNroRegpro() {
 		return nroRegpro;
 	}
 
-	public void setNroRegpro(int nroRegpro) {
+	public void setNroRegpro(String nroRegpro) {
 		this.nroRegpro = nroRegpro;
+	}
+
+	public String getNroDniProfesor() {
+		return nroDniProfesor;
+	}
+
+	public void setNroDniProfesor(String nroDniProfesor) {
+		this.nroDniProfesor = nroDniProfesor;
 	}
 
 	public Colegio getIdColegioProf() {

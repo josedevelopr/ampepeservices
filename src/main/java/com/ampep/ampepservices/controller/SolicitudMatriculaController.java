@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ampep.ampepservices.entities.SolicitudMatricula;
 import com.ampep.ampepservices.services.SolicitudMatriculaService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping({"/ampep"})
 public class SolicitudMatriculaController 

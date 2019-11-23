@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ampep.ampepservices.entities.Colegio;
 import com.ampep.ampepservices.entities.UsuarioSistema;
 import com.ampep.ampepservices.entities.ValidacionRegistroUsuario;
+import com.ampep.ampepservices.services.ColegioService;
 import com.ampep.ampepservices.services.ValidacionRegistroUsuarioService;
 
 @CrossOrigin(origins = "*")
@@ -20,6 +22,7 @@ import com.ampep.ampepservices.services.ValidacionRegistroUsuarioService;
 public class ValidacionRegistroUsuarioController {
 	@Autowired
 	ValidacionRegistroUsuarioService service;
+	ColegioService serviceColegio;
 	
 	@PostMapping(path= {"/validacionregistro/"})
 	public ValidacionRegistroUsuario agregar(@RequestBody ValidacionRegistroUsuario valreg) {
@@ -41,8 +44,14 @@ public class ValidacionRegistroUsuarioController {
 	}
 	
 	@GetMapping(path= {"/validacionregistro/{codmodular}/{dni}/{codvalidacion}"})
-	public ValidacionRegistroUsuario validarRegistro(@PathVariable("codmodular") String codmodular,@PathVariable("dni") String dni,@PathVariable("codvalidacion") String codvalidacion) {
+	public ValidacionRegistroUsuario validarRegistro(@PathVariable("codmodular") String codmodular,@PathVariable("dni") String dni,@PathVariable("codvalidacion") String codvalidacion) {		
+		ValidacionRegistroUsuario objValidacion = service.validacionCodModCodValidDni(codmodular, dni, codvalidacion);
 		
-		return service.validacionCodModCodValidDni(codmodular, dni, codvalidacion);
+		if(objValidacion!=null || objValidacion.getIdValidRegUsuario()+""!="")		
+		{
+			objValidacion.setEstadoValRegUsuario("2");
+			service.edit(objValidacion);
+		}
+		return objValidacion;		
 	}
 }

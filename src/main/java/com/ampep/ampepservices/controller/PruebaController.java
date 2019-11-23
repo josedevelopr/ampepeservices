@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ampep.ampepservices.entities.Prueba;
 import com.ampep.ampepservices.services.PruebaService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping({"/ampep"})
 public class PruebaController 

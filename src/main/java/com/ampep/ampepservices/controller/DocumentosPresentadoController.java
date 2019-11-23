@@ -20,7 +20,7 @@ import com.ampep.ampepservices.entities.DocumentosPresentado;
 import com.ampep.ampepservices.services.ApoderadoService;
 import com.ampep.ampepservices.services.DocumentosPresentadoService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping({"/ampep"})
 public class DocumentosPresentadoController 

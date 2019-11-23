@@ -11,7 +11,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedStoredProcedureQueries;
+import javax.persistence.NamedStoredProcedureQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.ParameterMode;
+import javax.persistence.StoredProcedureParameter;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -20,6 +24,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="tb_colegio")
+@NamedStoredProcedureQueries(value={
+	@NamedStoredProcedureQuery(name="usp_validar_colegio",procedureName="usp_validar_registro",parameters={
+			@StoredProcedureParameter(mode=ParameterMode.IN, name="it_codmodular",type = String.class),
+			@StoredProcedureParameter(mode=ParameterMode.OUT,name="existe_registro",type = Integer.class)
+	})	
+})
 public class Colegio 
 {
 	public List<Alumno> getListaAlumnoColegio() {

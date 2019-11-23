@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ampep.ampepservices.entities.Distrito;
 import com.ampep.ampepservices.services.DistritoService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping({"ampep"})
 public class DistritoController 

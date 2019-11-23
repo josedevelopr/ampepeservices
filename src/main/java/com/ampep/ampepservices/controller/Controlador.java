@@ -20,7 +20,7 @@ import org.springframework.web.cors.reactive.CorsConfigurationSource;
 import com.ampep.ampepservices.entities.Persona;
 import com.ampep.ampepservices.services.PersonaService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping({"/personas"})
 public class Controlador {
