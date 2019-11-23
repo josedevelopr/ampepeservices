@@ -34,7 +34,7 @@ public class ProfesorController {
 	
 	@PostMapping(path= {"/profesor/"})
 	public Profesor agregar(@Valid @RequestBody Profesor prof) {
-		
+		System.out.print("POST");
 		return service.add(prof);
 	}
 	
@@ -45,9 +45,11 @@ public class ProfesorController {
 	}
 	
 	@PutMapping(path= {"/profesor/{id}"})
-	public Profesor editar(@RequestBody Profesor prof, @PathVariable("id") int id) {
+	public Profesor editar(@Valid @RequestBody Profesor prof,@Valid @PathVariable("id") int id) {
 	
 		prof.setIdProfeso(id);
+
+		System.out.print("cod "+id);
 		return service.edit(prof);
 	}
 	
