@@ -1,17 +1,22 @@
 package com.ampep.ampepservices.entities;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="tb_usuasiste")
@@ -57,6 +62,19 @@ public class UsuarioSistema {
 	@ManyToOne
 	@JoinColumn(name="us_idtipousu")
 	private TipoUsuario idTipoUsuSist;
+	
+	@OneToMany(mappedBy = "usuariosisAnuncio", fetch = FetchType.LAZY)
+	@JsonIgnore
+	private List<Anuncio> listaAnunciosUsuarioSistemas;
+
+
+	public List<Anuncio> getListaAnunciosUsuarioSistemas() {
+		return listaAnunciosUsuarioSistemas;
+	}
+
+	public void setListaAnunciosUsuarioSistemas(List<Anuncio> listaAnunciosUsuarioSistemas) {
+		this.listaAnunciosUsuarioSistemas = listaAnunciosUsuarioSistemas;
+	}
 
 	public int getIdUsusist() {
 		return idUsusist;

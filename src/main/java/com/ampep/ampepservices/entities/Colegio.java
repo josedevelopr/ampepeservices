@@ -119,6 +119,31 @@ public class Colegio
 	@JsonIgnore
 	private List<Alumno> listaAlumnoColegio;
 	
+	public List<DocumentoRequisitoColegio> getListaDocumentoRequisitoColegiodeColegio() {
+		return listaDocumentoRequisitoColegiodeColegio;
+	}
+
+	public void setListaDocumentoRequisitoColegiodeColegio(
+			List<DocumentoRequisitoColegio> listaDocumentoRequisitoColegiodeColegio) {
+		this.listaDocumentoRequisitoColegiodeColegio = listaDocumentoRequisitoColegiodeColegio;
+	}
+
+	public List<AnteriorMatricula> getListaAnteriorMatriculaColegio() {
+		return listaAnteriorMatriculaColegio;
+	}
+
+	public void setListaAnteriorMatriculaColegio(List<AnteriorMatricula> listaAnteriorMatriculaColegio) {
+		this.listaAnteriorMatriculaColegio = listaAnteriorMatriculaColegio;
+	}
+
+	public List<Anuncio> getListaAnuncioColegio() {
+		return listaAnuncioColegio;
+	}
+
+	public void setListaAnuncioColegio(List<Anuncio> listaAnuncioColegio) {
+		this.listaAnuncioColegio = listaAnuncioColegio;
+	}
+
 	@OneToMany(mappedBy = "colegioSeccion", fetch = FetchType.LAZY)
 	@JsonIgnore
 	private List<SeccionEscolar> listaSeccionEscolarColegio;
@@ -134,6 +159,10 @@ public class Colegio
 	@OneToMany(mappedBy = "colegioAnteriorMatricula", fetch = FetchType.LAZY)
 	@JsonIgnore
 	private List<AnteriorMatricula> listaAnteriorMatriculaColegio;
+	
+	@OneToMany(mappedBy = "colegioAnuncio", fetch = FetchType.LAZY)
+	@JsonIgnore
+	private List<Anuncio> listaAnuncioColegio;
 	
 	public List<Matricula> getListaMatriculaColegio() {
 		return listaMatriculaColegio;
