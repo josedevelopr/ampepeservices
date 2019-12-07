@@ -59,4 +59,5 @@ public class UsuarioSistemaController {
 	public UsuarioSistema delete(@PathVariable("id") int id) {
 		return service.delete(id);
 	}
+
 }
